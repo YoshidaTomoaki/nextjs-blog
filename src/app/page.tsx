@@ -1,4 +1,5 @@
-import Image from 'next/image'
+import Image from "next/image";
+import { sql } from "@vercel/postgres";
 
 export default function Home() {
   return (
@@ -15,7 +16,7 @@ export default function Home() {
             target="_blank"
             rel="noopener noreferrer"
           >
-            By{' '}
+            By{" "}
             <Image
               src="/vercel.svg"
               alt="Vercel Logo"
@@ -47,7 +48,7 @@ export default function Home() {
           rel="noopener noreferrer"
         >
           <h2 className={`mb-3 text-2xl font-semibold`}>
-            Docs{' '}
+            Docs{" "}
             <span className="inline-block transition-transform group-hover:translate-x-1 motion-reduce:transform-none">
               -&gt;
             </span>
@@ -64,7 +65,7 @@ export default function Home() {
           rel="noopener noreferrer"
         >
           <h2 className={`mb-3 text-2xl font-semibold`}>
-            Learn{' '}
+            Learn{" "}
             <span className="inline-block transition-transform group-hover:translate-x-1 motion-reduce:transform-none">
               -&gt;
             </span>
@@ -81,7 +82,7 @@ export default function Home() {
           rel="noopener noreferrer"
         >
           <h2 className={`mb-3 text-2xl font-semibold`}>
-            Templates{' '}
+            Templates{" "}
             <span className="inline-block transition-transform group-hover:translate-x-1 motion-reduce:transform-none">
               -&gt;
             </span>
@@ -98,7 +99,7 @@ export default function Home() {
           rel="noopener noreferrer"
         >
           <h2 className={`mb-3 text-2xl font-semibold`}>
-            Deploy{' '}
+            Deploy{" "}
             <span className="inline-block transition-transform group-hover:translate-x-1 motion-reduce:transform-none">
               -&gt;
             </span>
@@ -109,5 +110,29 @@ export default function Home() {
         </a>
       </div>
     </main>
-  )
+  );
 }
+
+/**
+ * This example uses Next.js. It will create a Server Component accessing a Postgres Database.
+ * https://vercel.com/yda/nextjs-blog/stores/postgres/store_6XHiz0iVXGSlQM03/guides
+ */
+/*
+export async function Cart({
+  params,
+}: {
+  params: { user: string };
+}): Promise<JSX.Element> {
+  const { rows } = await sql`SELECT * from CARTS where user_id=${params.user}`;
+
+  return (
+    <div>
+      {rows.map((row) => (
+        <div key={row.id}>
+          {row.id} - {row.quantity}
+        </div>
+      ))}
+    </div>
+  );
+}
+*/
